@@ -15,6 +15,8 @@ public class NRSRManager : MonoBehaviour {
     public int numberOfVisibleObjects;
     public int numberOfFilteredObjects;
 
+
+    // declare new elements?
     private void FixedUpdate()
     {
         FindObjectsInScene(); // need to evaluate if needed
@@ -28,7 +30,7 @@ public class NRSRManager : MonoBehaviour {
 
             foreach (GameObject go in FilterObjectsInScene)
             {
-                //Todo later
+                // Todo Later
             }
         }
 
