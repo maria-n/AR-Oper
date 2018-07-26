@@ -5,12 +5,14 @@ using HoloToolkit.Unity;
 using HoloToolkit.Unity.InputModule;
 
 public class AirTapHandler : Singleton<AirTapHandler> , IInputClickHandler {
-    private Color defaultColor;
+    //private Color defaultColor;
+    private GameObject toggledObject;
 
     // Use this for initialization
     protected override void Awake()
     {
-        defaultColor = gameObject.GetComponent<MeshRenderer>().material.color;
+        //defaultColor = gameObject.GetComponent<MeshRenderer>().material.color;
+        toggledObject = GameObject.Find(this.name+"/ToggleInfo");
     }
 
     // Update is called once per frame
@@ -20,13 +22,17 @@ public class AirTapHandler : Singleton<AirTapHandler> , IInputClickHandler {
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        if (gameObject.GetComponent<MeshRenderer>().material.color != Color.red)
+        Debug.Log(toggledObject);
+
+        if (toggledObject.activeInHierarchy == true)
         {
-            gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+            Debug.Log("deactivate");
+            toggledObject.SetActive(false);
         }
         else
         {
-            gameObject.GetComponent<MeshRenderer>().material.color = defaultColor;
+            Debug.Log("activate");
+            toggledObject.SetActive(true);
         }
     }
 }

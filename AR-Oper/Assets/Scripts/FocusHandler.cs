@@ -21,7 +21,7 @@ public class FocusHandler : Singleton<FocusHandler> , IFocusable
     
     public void OnFocusEnter()
     {
-        gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
+        gameObject.GetComponent<MeshRenderer>().material.color = Color.blue;
     }
 
     public void OnFocusExit ()
