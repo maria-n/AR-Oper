@@ -1,42 +1,33 @@
 ﻿using HoloToolkit.Unity;
+using HoloToolkit.Unity.InputModule;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GazeHandler : Singleton<GazeHandler> {
-    private Color startColor;
+    private Color startColor = Color.clear;
+    private GazeManager gazeManager;
+    private GameObject currentObject;
 
     // Use this for initialization
     void Start()
     {
-
+        gazeManager = GameObject.Find("Cursor").GetComponent<GazeManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        RaycastHit HitInfo;
-
-        if (Physics.Raycast(
-                Camera.main.transform.position,
-                Camera.main.transform.forward,
-                out HitInfo,
-                20.0f,
-                Physics.DefaultRaycastLayers))
+        if (gazeManager.HitObject != null)
         {
-            var com = gameObject.GetComponent<Renderer>();
-            startColor = com.material.color;
-            com.material.color = Color.yellow;
-            Debug.Log("Did Hit");
+            currentObject = gazeManager.HitObject;
+            Material com = gazeManager.HitObject.GetComponent<Renderer>().material;
+            com.color = Color.yellow;
         }
         else
         {
-            var com = gameObject.GetComponent<Renderer>();
-            com.material.color = startColor;
-            Debug.Log("Did Not Hit");
+            Material com = currentObject.GetComponent<Renderer>().material;
+            com.color = startColor;
         }
-            // If the Raycast has succeeded and hit a hologram
-            // hitInfo's point represents the position being gazed at
-            // hitInfo's collider GameObject represents the hologram being gazed at
     }
 }
