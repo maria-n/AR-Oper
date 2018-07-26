@@ -22,17 +22,17 @@ public class AirTapHandler : Singleton<AirTapHandler> , IInputClickHandler {
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        Debug.Log(toggledObject);
+        //Debug.Log(toggledObject);
 
-        if (toggledObject.activeInHierarchy == true)
+        if (toggledObject.GetComponent<Renderer>().enabled == false)
         {
-            Debug.Log("deactivate");
-            toggledObject.SetActive(false);
+            Debug.Log("activate");
+            toggledObject.GetComponent<Renderer>().enabled = true;
         }
         else
         {
-            Debug.Log("activate");
-            toggledObject.SetActive(true);
+            Debug.Log("deactivate");
+            toggledObject.GetComponent<Renderer>().enabled = false;
         }
     }
 }
