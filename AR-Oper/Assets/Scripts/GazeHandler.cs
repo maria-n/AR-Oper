@@ -17,7 +17,7 @@ public class GazeHandler : Singleton<GazeHandler> {
 
     void Start()
     {
-        gazeManager = GameObject.Find("Cursor").GetComponent<GazeManager>();
+        gazeManager = GameObject.Find("DefaultCursor").GetComponent<GazeManager>();
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class GazeHandler : Singleton<GazeHandler> {
         {
             //currentObject = gazeManager.HitObject;
             Material com = gazeManager.HitObject.GetComponent<Renderer>().material;
-            com.color = Color.yellow;
+            com.color = (com.color + Color.yellow) / 2;
         }
         else
         {
