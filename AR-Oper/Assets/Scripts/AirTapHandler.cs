@@ -30,6 +30,8 @@ public class AirTapHandler : Singleton<AirTapHandler> , IInputClickHandler {
     {
         //Debug.Log(toggledObject);
 
+        // if the child objects Renderer is disabled then enable it
+        // else disable it
         if (toggledObject.GetComponent<Renderer>().enabled == false)
         {
             Debug.Log("activate");

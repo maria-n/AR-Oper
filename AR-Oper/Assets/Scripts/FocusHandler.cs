@@ -28,15 +28,21 @@ public class FocusHandler : Singleton<FocusHandler> , IFocusable
 	void Update () {
 		
 	}
-    
+
+    /// <summary>
+    /// When an object intersects the raycast of the gaze, the color of said object changes
+    /// </summary>
     public void OnFocusEnter()
     {
         gameObject.GetComponent<MeshRenderer>().material.color = Color.blue;
     }
 
+    /// <summary>
+    /// When the raycast of the gaze stops intersecting with the object, the objects color reverts back.
+    /// </summary>
     public void OnFocusExit ()
     {
-        gameObject.GetComponent<MeshRenderer>().material.color = defaultColor;
+            gameObject.GetComponent<MeshRenderer>().material.color = defaultColor;
     }
 
 }
