@@ -21,7 +21,7 @@ public class NRSRManager : MonoBehaviour {
     {
         FindObjectsInScene(); // need to evaluate if needed
 
-        TotalNumberOfObjects = ObjectsInScene.Length;
+        TotalNumberOfObjects = ObjectsInScene.Length; // debug int now knows how many objects with a renderer are in the scene
 
         if (TotalNumberOfObjects != PreviousFrameObjectCount)
         {
@@ -39,15 +39,20 @@ public class NRSRManager : MonoBehaviour {
 
     void FindObjectsInScene()
     {
+        // Fills array with every object that has a renderer attached
         ObjectsInScene = null;
         ObjectsInScene = FindObjectsOfType<Renderer>();
     }
 
+    /// <summary>
+    /// filters out all objects without specific tag
+    /// </summary>
     void FilterUnneededObjects ()
     {
         FilterObjectsInScene.Clear();
         numberOfFilteredObjects = 0;
 
+        
         for (int i = 0; i < ObjectsInScene.Length; i++)
         {
             if (ObjectsInScene[i].gameObject.tag != "NRSRTools")

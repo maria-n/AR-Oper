@@ -9,6 +9,9 @@ public class AirTapHandler : Singleton<AirTapHandler> , IInputClickHandler {
     private GameObject toggledObject;
 
     // Use this for initialization
+    /// <summary>
+    /// "Save" the child object of the GameObject this script is applied to in a private variable to use in function.
+    /// </summary>
     protected override void Awake()
     {
         //defaultColor = gameObject.GetComponent<MeshRenderer>().material.color;
@@ -20,6 +23,9 @@ public class AirTapHandler : Singleton<AirTapHandler> , IInputClickHandler {
 		
 	}
 
+    /// <summary>
+    /// Toggles the Renderer of the child object. 
+    /// </summary>
     public void OnInputClicked(InputClickedEventData eventData)
     {
         //Debug.Log(toggledObject);
