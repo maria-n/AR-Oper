@@ -40,8 +40,7 @@ GameObject:
   - component: {fileID: 33403102523772142}
   - component: {fileID: 64191886127365902}
   - component: {fileID: 23102726181159446}
-  - component: {fileID: 114153273438572752}
-  - component: {fileID: 114423592456738326}
+  - component: {fileID: 114719316041605694}
   m_Layer: 0
   m_Name: IconTest
   m_TagString: Untagged
@@ -172,7 +171,7 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114153273438572752
+--- !u!114 &114719316041605694
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -180,20 +179,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1470124374490432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d66a80822f6eda40813a2fef2878684, type: 3}
+  m_Script: {fileID: 11500000, guid: d57ed112cc591a3409e346dab92348e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114423592456738326
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1470124374490432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2e174690cf8a2248b6ca18badbf702d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  toggledObjects: []
 --- !u!136 &136341906537507694
 CapsuleCollider:
   m_ObjectHideFlags: 1

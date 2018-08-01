@@ -9,6 +9,7 @@ public class ToggleObjectsScript : Singleton<ToggleObjectsScript>, IFocusable, I
     private Color defaultColor;
     private int toggleState;
     private GameObject currentToggledObject;
+    private GameObject currentToggledText;
     // public GameObject[] toggleObjects;
     public GameObject[] toggledObjects; 
 
@@ -17,6 +18,7 @@ public class ToggleObjectsScript : Singleton<ToggleObjectsScript>, IFocusable, I
         defaultColor = gameObject.GetComponent<MeshRenderer>().material.color;
         toggleState = 0;
         currentToggledObject = GameObject.Find(this.name + "/ToggleInfo");
+        currentToggledText = GameObject.Find(this.name + "/ToggleInfo/InfoText");
         // toggleObjects = GameObject.FindGameObjectsWithTag("ToggleObject");
         toggledObjects = GameObject.FindGameObjectsWithTag("ToggledObject");
     }
@@ -58,21 +60,24 @@ public class ToggleObjectsScript : Singleton<ToggleObjectsScript>, IFocusable, I
         switch (toggleState)
         {
             case 0:
-                Debug.Log(toggleState);
                 ToggleInfoBox();
+                currentToggledText.GetComponent<TextMesh>().text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna";
                 toggleState++;
                 break;
             case 1:
-                Debug.Log(toggleState);
+                currentToggledText.GetComponent<TextMesh>().text = "Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
                 toggleState++;
                 break;
             case 2:
-                Debug.Log(toggleState);
+                currentToggledText.GetComponent<TextMesh>().text = "No sea takimata sanctus est Lorem ipsum dolor sit amet.";
                 toggleState++;
                 break;
             case 3:
-                Debug.Log(toggleState);
                 currentToggledObject.GetComponent<Renderer>().enabled = false;
+                for (int i = 0; i < currentToggledObject.transform.childCount; i++)
+                { 
+                    currentToggledObject.transform.GetChild(i).GetComponent<Renderer>().enabled = false;
+                }
                 toggleState = 0;
                 break;
         }
@@ -81,11 +86,19 @@ public class ToggleObjectsScript : Singleton<ToggleObjectsScript>, IFocusable, I
     private void ToggleInfoBox ()
     {
         currentToggledObject.GetComponent<Renderer>().enabled = true;
+        for (int i = 0; i < currentToggledObject.transform.childCount; i++)
+        {
+            currentToggledObject.transform.GetChild(i).GetComponent<Renderer>().enabled = true;
+        }
         foreach (GameObject toggledObject in toggledObjects)
         {
             if (toggledObject != currentToggledObject)
             {
                 toggledObject.GetComponent<Renderer>().enabled = false;
+                for (int i = 0; i < toggledObject.transform.childCount; i++)
+                {
+                    toggledObject.transform.GetChild(i).GetComponent<Renderer>().enabled = false;
+                }
             }
         }
     }
