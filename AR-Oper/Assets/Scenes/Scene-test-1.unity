@@ -307,7 +307,9 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114423592456738326, guid: d0e9b4ccbcec0644e977c685c933a9bb, type: 2}
+    - {fileID: 114153273438572752, guid: d0e9b4ccbcec0644e977c685c933a9bb, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d0e9b4ccbcec0644e977c685c933a9bb, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &895467424 stripped
@@ -340,8 +342,6 @@ GameObject:
   - component: {fileID: 1408665414}
   - component: {fileID: 1408665413}
   - component: {fileID: 1408665412}
-  - component: {fileID: 1408665411}
-  - component: {fileID: 1408665410}
   - component: {fileID: 1408665416}
   m_Layer: 0
   m_Name: ToggleObject1
@@ -350,28 +350,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1408665410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1408665409}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d66a80822f6eda40813a2fef2878684, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1408665411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1408665409}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2e174690cf8a2248b6ca18badbf702d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1408665412
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -702,7 +680,9 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114163210681235842, guid: 8d1f05802b4ec324e8c4fd21cf2aaa04, type: 2}
+    - {fileID: 114078635033621976, guid: 8d1f05802b4ec324e8c4fd21cf2aaa04, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 8d1f05802b4ec324e8c4fd21cf2aaa04, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1924094494

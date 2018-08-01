@@ -7,15 +7,17 @@ using HoloToolkit.Unity.InputModule;
 public class ToggleObjectsScript : Singleton<ToggleObjectsScript>, IFocusable, IInputClickHandler
 { 
     private Color defaultColor;
+    private int toggleState;
     private GameObject currentToggledObject;
-    public GameObject[] toggleObjects;
+    // public GameObject[] toggleObjects;
     public GameObject[] toggledObjects; 
 
     protected override void Awake()
     {
         defaultColor = gameObject.GetComponent<MeshRenderer>().material.color;
+        toggleState = 0;
         currentToggledObject = GameObject.Find(this.name + "/ToggleInfo");
-        toggleObjects = GameObject.FindGameObjectsWithTag("ToggleObject");
+        // toggleObjects = GameObject.FindGameObjectsWithTag("ToggleObject");
         toggledObjects = GameObject.FindGameObjectsWithTag("ToggledObject");
     }
 
@@ -43,26 +45,50 @@ public class ToggleObjectsScript : Singleton<ToggleObjectsScript>, IFocusable, I
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        // For loop for Array
-        // If new object gets tap
-        // open Infobox for object and close alle info boxes for the rest
+        ChangeInfoBox();
+    }
 
+    private void ChangeInfoBox()
+    {
         if (currentToggledObject.GetComponent<Renderer>().enabled == false)
         {
-            Debug.Log("activate");
-            currentToggledObject.GetComponent<Renderer>().enabled = true;
-            foreach(GameObject toggledObject in toggledObjects)
-            {
-                if(toggledObject != currentToggledObject)
-                {
-                    toggledObject.GetComponent<Renderer>().enabled = false;
-                }
-            }
+            toggleState = 0;
         }
-        else
+
+        switch (toggleState)
         {
-            Debug.Log("deactivate");
-            currentToggledObject.GetComponent<Renderer>().enabled = false;
+            case 0:
+                Debug.Log(toggleState);
+                ToggleInfoBox();
+                toggleState++;
+                break;
+            case 1:
+                Debug.Log(toggleState);
+                toggleState++;
+                break;
+            case 2:
+                Debug.Log(toggleState);
+                toggleState++;
+                break;
+            case 3:
+                Debug.Log(toggleState);
+                currentToggledObject.GetComponent<Renderer>().enabled = false;
+                toggleState = 0;
+                break;
         }
     }
+
+    private void ToggleInfoBox ()
+    {
+        currentToggledObject.GetComponent<Renderer>().enabled = true;
+        foreach (GameObject toggledObject in toggledObjects)
+        {
+            if (toggledObject != currentToggledObject)
+            {
+                toggledObject.GetComponent<Renderer>().enabled = false;
+            }
+        }
+    }
+
+    
 }
