@@ -289,9 +289,45 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1470124374490432, guid: d0e9b4ccbcec0644e977c685c933a9bb, type: 2}
+      propertyPath: m_Name
+      value: ToggleObject2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470124374490432, guid: d0e9b4ccbcec0644e977c685c933a9bb, type: 2}
+      propertyPath: m_TagString
+      value: ToggleObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 114423592456738326, guid: d0e9b4ccbcec0644e977c685c933a9bb,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114153273438572752, guid: d0e9b4ccbcec0644e977c685c933a9bb,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0e9b4ccbcec0644e977c685c933a9bb, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &895467424 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1141751395940858, guid: 8d1f05802b4ec324e8c4fd21cf2aaa04,
+    type: 2}
+  m_PrefabInternal: {fileID: 1832058376}
+--- !u!114 &895467425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 895467424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d57ed112cc591a3409e346dab92348e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleObjects: []
+  toggledObjects: []
 --- !u!1 &1408665409
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,9 +342,10 @@ GameObject:
   - component: {fileID: 1408665412}
   - component: {fileID: 1408665411}
   - component: {fileID: 1408665410}
+  - component: {fileID: 1408665416}
   m_Layer: 0
-  m_Name: Object (1)
-  m_TagString: Untagged
+  m_Name: ToggleObject1
+  m_TagString: ToggleObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -319,7 +356,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1408665409}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d66a80822f6eda40813a2fef2878684, type: 3}
   m_Name: 
@@ -330,7 +367,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1408665409}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2e174690cf8a2248b6ca18badbf702d, type: 3}
   m_Name: 
@@ -410,6 +447,19 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0326, y: 0.0948}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1408665416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1408665409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d57ed112cc591a3409e346dab92348e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleObjects: []
+  toggledObjects: []
 --- !u!1 &1725921739
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,6 +684,24 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1141751395940858, guid: 8d1f05802b4ec324e8c4fd21cf2aaa04, type: 2}
+      propertyPath: m_Name
+      value: ToggleObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141751395940858, guid: 8d1f05802b4ec324e8c4fd21cf2aaa04, type: 2}
+      propertyPath: m_TagString
+      value: ToggleObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 114163210681235842, guid: 8d1f05802b4ec324e8c4fd21cf2aaa04,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114078635033621976, guid: 8d1f05802b4ec324e8c4fd21cf2aaa04,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d1f05802b4ec324e8c4fd21cf2aaa04, type: 2}
   m_IsPrefabParent: 0
@@ -702,3 +770,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1964180799 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1470124374490432, guid: d0e9b4ccbcec0644e977c685c933a9bb,
+    type: 2}
+  m_PrefabInternal: {fileID: 753279570}
+--- !u!114 &1964180800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1964180799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d57ed112cc591a3409e346dab92348e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleObjects: []
+  toggledObjects: []

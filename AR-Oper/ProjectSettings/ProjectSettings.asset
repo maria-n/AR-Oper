@@ -565,11 +565,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: AR-Oper
   metroPackageVersion: 
-  metroCertificatePath: 
+  metroCertificatePath: C:\Users\maria\Documents\GitHub\AR-Oper\AR-Oper\Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 004804eae246d501
   metroApplicationDescription: AR-Oper
   wsaImages: {}
   metroTileShortName: 
