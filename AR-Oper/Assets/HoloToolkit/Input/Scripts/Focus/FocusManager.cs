@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Academy.HoloToolkit.Unity;
+
 
 namespace HoloToolkit.Unity.InputModule
 {

@@ -3,6 +3,8 @@
 
 using System;
 using UnityEngine;
+using Academy.HoloToolkit.Unity;
+
 
 namespace HoloToolkit.Unity
 {

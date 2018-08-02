@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Unity;
 using HoloToolkit.Unity.InputModule;
+using Academy.HoloToolkit.Unity;
+
 
 public class ToggleObjectsScript : Singleton<ToggleObjectsScript>, IFocusable, IInputClickHandler
 { 
