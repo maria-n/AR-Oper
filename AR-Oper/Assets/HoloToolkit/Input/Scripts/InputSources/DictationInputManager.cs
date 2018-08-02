@@ -3,8 +3,6 @@
 
 using System.Collections;
 using UnityEngine;
-using Academy.HoloToolkit.Unity;
-
 
 #if UNITY_WSA || UNITY_STANDALONE_WIN
 using System.Text;

@@ -3,7 +3,6 @@
 
 using HoloToolkit.Unity.InputModule;
 using UnityEngine;
-using Academy.HoloToolkit.Unity;
 
 #if UNITY_WSA
 #if UNITY_2017_2_OR_NEWER

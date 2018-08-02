@@ -6,8 +6,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Unity;
-using Academy.HoloToolkit.Unity;
-
 
 namespace HoloToolkit.Unity.InputModule
 {

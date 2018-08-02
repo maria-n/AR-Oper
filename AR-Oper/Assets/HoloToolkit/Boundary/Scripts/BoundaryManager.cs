@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.WSA;
-using Academy.HoloToolkit.Unity;
-
 #endif
 
 namespace HoloToolkit.Unity.Boundary

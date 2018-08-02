@@ -2,7 +2,7 @@
 using System.Collections;
 
 [RequireComponent(typeof(TextMesh))]
-public class SmartTextMesh : MonoBehaviour // not my script
+public class SmartTextMesh : MonoBehaviour
 {
     TextMesh TheMesh;
     public string UnwrappedText;
