@@ -61,15 +61,18 @@ public class ToggleObjectsScript : Singleton<ToggleObjectsScript>, IFocusable, I
         {
             case 0:
                 ToggleInfoBox();
-                currentToggledText.GetComponent<TextMesh>().text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna";
+                currentToggledText.GetComponent<SmartTextMesh>().NeedsLayout = true;
+                currentToggledText.GetComponent<SmartTextMesh>().UnwrappedText = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna";
                 toggleState++;
                 break;
             case 1:
-                currentToggledText.GetComponent<TextMesh>().text = "Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
+                currentToggledText.GetComponent<SmartTextMesh>().NeedsLayout = true;
+                currentToggledText.GetComponent<SmartTextMesh>().UnwrappedText = "Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
                 toggleState++;
                 break;
             case 2:
-                currentToggledText.GetComponent<TextMesh>().text = "No sea takimata sanctus est Lorem ipsum dolor sit amet.";
+                currentToggledText.GetComponent<SmartTextMesh>().NeedsLayout = true;
+                currentToggledText.GetComponent<SmartTextMesh>().UnwrappedText = "No sea takimata sanctus est Lorem ipsum dolor sit amet.";
                 toggleState++;
                 break;
             case 3:
