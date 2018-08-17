@@ -565,7 +565,7 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: AR-Oper
   metroPackageVersion: 
-  metroCertificatePath: C:\Users\maria\Documents\GitHub\AR-Oper\AR-Oper\Assets\WSATestCertificate.pfx
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
   metroCertificateSubject: DefaultCompany
   metroCertificateIssuer: DefaultCompany
