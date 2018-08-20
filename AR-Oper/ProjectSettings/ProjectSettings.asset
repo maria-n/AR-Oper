@@ -589,7 +589,7 @@ PlayerSettings:
       HumanInterfaceDevice: True
       InternetClient: False
       InternetClientServer: False
-      Microphone: False
+      Microphone: True
       PrivateNetworkClientServer: False
       SpatialPerception: True
       WebCam: True
