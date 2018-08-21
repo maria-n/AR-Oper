@@ -13,6 +13,7 @@ public class GazeHandler : Singleton<GazeHandler> {
     {
         currentObject = gameObject;
         startColor = GetComponent<Renderer>().material.color;
+        Debug.Log("Awake: " + this.gameObject);
     }
 
     void Start()

@@ -4,11 +4,16 @@ using System.Collections;
 [RequireComponent(typeof(TextMesh))]
 public class SmartTextMesh : MonoBehaviour
 {
-    TextMesh TheMesh;
+    private TextMesh TheMesh;
     public string UnwrappedText;
     public float MaxWidth;
     public bool NeedsLayout = true;
     public bool ConvertNewLines = false;
+
+    private void Awake()
+    {
+        Debug.Log("Awake: " + this.gameObject);
+    }
 
     void Start()
     {

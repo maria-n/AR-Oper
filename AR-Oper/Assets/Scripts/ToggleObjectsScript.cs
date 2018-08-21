@@ -5,8 +5,10 @@ using HoloToolkit.Unity;
 using HoloToolkit.Unity.InputModule;
 
 public class ToggleObjectsScript : Singleton<ToggleObjectsScript>, IFocusable, IInputClickHandler
-{ 
+{
+    private static bool created = false;
     private Color defaultColor;
+    private Color changeDefaultColor;
     private int toggleState;
     private GameObject currentToggledObject;
     private GameObject currentToggledText;
@@ -15,12 +17,14 @@ public class ToggleObjectsScript : Singleton<ToggleObjectsScript>, IFocusable, I
 
     protected override void Awake()
     {
-        defaultColor = gameObject.GetComponent<MeshRenderer>().material.color;
+        defaultColor = this.GetComponent<MeshRenderer>().material.color;
+        changeDefaultColor = Color.blue;
         toggleState = 0;
         currentToggledObject = GameObject.Find(this.name + "/ToggleInfo");
         currentToggledText = GameObject.Find(this.name + "/ToggleInfo/InfoText");
         // toggleObjects = GameObject.FindGameObjectsWithTag("ToggleObject");
         toggledObjects = GameObject.FindGameObjectsWithTag("ToggledObject");
+        Debug.Log("Awake: " + this.gameObject);
     }
 
 
@@ -34,7 +38,7 @@ public class ToggleObjectsScript : Singleton<ToggleObjectsScript>, IFocusable, I
     /// </summary>
     public void OnFocusEnter()
     {
-        gameObject.GetComponent<MeshRenderer>().material.color = Color.blue;
+        this.GetComponent<MeshRenderer>().material.color = changeDefaultColor;
     }
 
     /// <summary>
@@ -42,7 +46,7 @@ public class ToggleObjectsScript : Singleton<ToggleObjectsScript>, IFocusable, I
     /// </summary>
     public void OnFocusExit()
     {
-        gameObject.GetComponent<MeshRenderer>().material.color = defaultColor;
+        this.GetComponent<MeshRenderer>().material.color = defaultColor;
     }
 
     public void OnInputClicked(InputClickedEventData eventData)

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ToggledObject
   - ToggleObject
+  - Stage
   layers:
   - Default
   - TransparentFX
