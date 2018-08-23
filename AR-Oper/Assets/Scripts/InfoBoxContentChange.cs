@@ -7,14 +7,15 @@ using UnityEngine;
 
 public class InfoBoxContentChange : MonoBehaviour
 {
-
+    public int textState;
     private void Awake()
     {
-        
+        textState = 0;
+        Debug.Log("Awake: " + this.gameObject);
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }

@@ -14,9 +14,9 @@ public class InfoBoxButtonScript : Singleton<InfoBoxButtonScript>, IInputClickHa
     private Color defaultIcon;
     public Color pressedIcon;
 
-    private int infoState;
+    // private int infoState;
     private int textCountMax;
-    // private GameObject toggleObject;
+    private GameObject toggleObject;
     // private GameObject currentToggledText;
     // public GameObject[] toggleObjects;
     // public GameObject[] toggledObjects;
@@ -26,13 +26,13 @@ public class InfoBoxButtonScript : Singleton<InfoBoxButtonScript>, IInputClickHa
     {
         defaultColor = this.GetComponent<Renderer>().material.color;
         defaultIcon = this.transform.GetChild(0).GetComponent<Renderer>().material.color;
-        // toggleObject = GameObject.Find("InfoBox");
+        toggleObject = GameObject.Find("InfoBox");
         // currentToggledText = GameObject.Find(toggleObject + "/InfoBoxBG/InfoBoxText");
         // toggleObjects = GameObject.FindGameObjectsWithTag("ToggleObject");
         // toggledObjects = GameObject.FindGameObjectsWithTag("ToggledObject");
         textCountMax = 3;
         gazeManager = GameObject.Find("DefaultCursor").GetComponent<GazeManager>();
-        infoState = 0;
+        Debug.Log("Awake: " + this.gameObject);
     }
 
     // Update is called once per frame
@@ -58,10 +58,10 @@ public class InfoBoxButtonScript : Singleton<InfoBoxButtonScript>, IInputClickHa
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        if (infoState < 0)
-            infoState = 0;
-        else if (infoState > textCountMax)
-            infoState = textCountMax;
+        if (toggleObject.GetComponent<InfoBoxContentChange>().textState < 0)
+            toggleObject.GetComponent<InfoBoxContentChange>().textState = 0;
+        else if (toggleObject.GetComponent<InfoBoxContentChange>().textState > textCountMax)
+            toggleObject.GetComponent<InfoBoxContentChange>().textState = textCountMax;
 
 
         switch (gazeManager.HitObject.name)
@@ -73,24 +73,24 @@ public class InfoBoxButtonScript : Singleton<InfoBoxButtonScript>, IInputClickHa
                 ClickBack();
                 break;
         }
-        Debug.Log(infoState);
+        Debug.Log(toggleObject.GetComponent<InfoBoxContentChange>().textState);
     }
 
     public void ClickForward()
     {
-        switch(infoState)
+        switch(toggleObject.GetComponent<InfoBoxContentChange>().textState)
         {
             case 0:
-                infoState++;
+                toggleObject.GetComponent<InfoBoxContentChange>().textState++;
                 break;
             case 1:
-                infoState++;
+                toggleObject.GetComponent<InfoBoxContentChange>().textState++;
                 break;
             case 2:
-                infoState++;
+                toggleObject.GetComponent<InfoBoxContentChange>().textState++;
                 break;
             case 3:
-                infoState = 0;
+                toggleObject.GetComponent<InfoBoxContentChange>().textState = 3;
                 break;
             default:
                 Debug.Log("something happened");
@@ -100,19 +100,19 @@ public class InfoBoxButtonScript : Singleton<InfoBoxButtonScript>, IInputClickHa
 
     private void ClickBack()
     {
-        switch (infoState)
+        switch (toggleObject.GetComponent<InfoBoxContentChange>().textState)
         {
-            case 3:
-                infoState--;
-                break;
-            case 2:
-                infoState--;
+            case 0:
+                toggleObject.GetComponent<InfoBoxContentChange>().textState = 0;
                 break;
             case 1:
-                infoState--;
+                toggleObject.GetComponent<InfoBoxContentChange>().textState--;
                 break;
-            case 0:
-                infoState = 3;
+            case 2:
+                toggleObject.GetComponent<InfoBoxContentChange>().textState--;
+                break;
+            case 3:
+                toggleObject.GetComponent<InfoBoxContentChange>().textState--;
                 break;
             default:
                 Debug.Log("something happened");
