@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 448849735}
   m_Layer: 0
   m_Name: InfoBoxBg
-  m_TagString: Untagged
+  m_TagString: ToggledObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,7 +143,7 @@ Transform:
   m_Children:
   - {fileID: 1051510835}
   m_Father: {fileID: 1843655100}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!23 &448849735
 MeshRenderer:
@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 501919752}
   m_Layer: 0
   m_Name: IconForward
-  m_TagString: Untagged
+  m_TagString: ToggledObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -370,7 +370,7 @@ GameObject:
   - component: {fileID: 655114574}
   m_Layer: 0
   m_Name: IconBack
-  m_TagString: Untagged
+  m_TagString: ToggledObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 1051510836}
   m_Layer: 0
   m_Name: InfoBoxText
-  m_TagString: Untagged
+  m_TagString: ToggledObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -807,7 +807,7 @@ GameObject:
   - component: {fileID: 1753768220}
   m_Layer: 0
   m_Name: ButtonForward
-  m_TagString: Untagged
+  m_TagString: ToggledObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -930,7 +930,7 @@ Transform:
   m_Children:
   - {fileID: 501919751}
   m_Father: {fileID: 1843655100}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!114 &1753768220
 MonoBehaviour:
@@ -957,7 +957,7 @@ GameObject:
   - component: {fileID: 1843655101}
   m_Layer: 0
   m_Name: InfoBox
-  m_TagString: Untagged
+  m_TagString: ToggledObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -972,9 +972,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 448849734}
   - {fileID: 1999064060}
   - {fileID: 1753768219}
-  - {fileID: 448849734}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -989,7 +989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab79a31b17d5fa4b93d904cfa1f415b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoState: 0
+  textState: 0
+  maxCount: 0
 --- !u!1001 &1972888437
 Prefab:
   m_ObjectHideFlags: 0
@@ -1118,7 +1119,7 @@ GameObject:
   - component: {fileID: 1999064061}
   m_Layer: 0
   m_Name: ButtonBack
-  m_TagString: Untagged
+  m_TagString: ToggledObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1241,7 +1242,7 @@ Transform:
   m_Children:
   - {fileID: 655114573}
   m_Father: {fileID: 1843655100}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!114 &1999064061
 MonoBehaviour:

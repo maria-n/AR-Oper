@@ -14,11 +14,9 @@ public class InfoBoxButtonScript : Singleton<InfoBoxButtonScript>, IInputClickHa
     private Color defaultIcon;
     public Color pressedIcon;
 
-    // private int infoState;
     private int textCountMax;
-    private GameObject toggleObject;
-    // private GameObject currentToggledText;
-    // public GameObject[] toggleObjects;
+    private GameObject toggelingObject;
+    // public GameObject[] toggelingObjects;
     // public GameObject[] toggledObjects;
     private GazeManager gazeManager;
 
@@ -26,13 +24,17 @@ public class InfoBoxButtonScript : Singleton<InfoBoxButtonScript>, IInputClickHa
     {
         defaultColor = this.GetComponent<Renderer>().material.color;
         defaultIcon = this.transform.GetChild(0).GetComponent<Renderer>().material.color;
-        toggleObject = GameObject.Find("InfoBox");
-        // currentToggledText = GameObject.Find(toggleObject + "/InfoBoxBG/InfoBoxText");
-        // toggleObjects = GameObject.FindGameObjectsWithTag("ToggleObject");
+        toggelingObject = GameObject.Find("InfoBox");
+        // toggelingObjects = GameObject.FindGameObjectsWithTag("toggelingObject");
         // toggledObjects = GameObject.FindGameObjectsWithTag("ToggledObject");
-        textCountMax = 3;
         gazeManager = GameObject.Find("DefaultCursor").GetComponent<GazeManager>();
+
         Debug.Log("Awake: " + this.gameObject);
+    }
+
+    private void Start()
+    {
+        textCountMax = toggelingObject.GetComponent<InfoBoxContentManager>().maxCount;
     }
 
     // Update is called once per frame
@@ -58,12 +60,6 @@ public class InfoBoxButtonScript : Singleton<InfoBoxButtonScript>, IInputClickHa
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        if (toggleObject.GetComponent<InfoBoxContentChange>().textState < 0)
-            toggleObject.GetComponent<InfoBoxContentChange>().textState = 0;
-        else if (toggleObject.GetComponent<InfoBoxContentChange>().textState > textCountMax)
-            toggleObject.GetComponent<InfoBoxContentChange>().textState = textCountMax;
-
-
         switch (gazeManager.HitObject.name)
         {
             case "ButtonForward":
@@ -73,24 +69,23 @@ public class InfoBoxButtonScript : Singleton<InfoBoxButtonScript>, IInputClickHa
                 ClickBack();
                 break;
         }
-        Debug.Log(toggleObject.GetComponent<InfoBoxContentChange>().textState);
     }
 
     public void ClickForward()
     {
-        switch(toggleObject.GetComponent<InfoBoxContentChange>().textState)
+        switch (toggelingObject.GetComponent<InfoBoxContentManager>().textState)
         {
             case 0:
-                toggleObject.GetComponent<InfoBoxContentChange>().textState++;
+                toggelingObject.GetComponent<InfoBoxContentManager>().textState++;
                 break;
             case 1:
-                toggleObject.GetComponent<InfoBoxContentChange>().textState++;
+                toggelingObject.GetComponent<InfoBoxContentManager>().textState++;
                 break;
             case 2:
-                toggleObject.GetComponent<InfoBoxContentChange>().textState++;
+                toggelingObject.GetComponent<InfoBoxContentManager>().textState++;
                 break;
             case 3:
-                toggleObject.GetComponent<InfoBoxContentChange>().textState = 3;
+                toggelingObject.GetComponent<InfoBoxContentManager>().textState = textCountMax;
                 break;
             default:
                 Debug.Log("something happened");
@@ -100,19 +95,19 @@ public class InfoBoxButtonScript : Singleton<InfoBoxButtonScript>, IInputClickHa
 
     private void ClickBack()
     {
-        switch (toggleObject.GetComponent<InfoBoxContentChange>().textState)
+        switch (toggelingObject.GetComponent<InfoBoxContentManager>().textState)
         {
             case 0:
-                toggleObject.GetComponent<InfoBoxContentChange>().textState = 0;
+                toggelingObject.GetComponent<InfoBoxContentManager>().textState = 0;
                 break;
             case 1:
-                toggleObject.GetComponent<InfoBoxContentChange>().textState--;
+                toggelingObject.GetComponent<InfoBoxContentManager>().textState--;
                 break;
             case 2:
-                toggleObject.GetComponent<InfoBoxContentChange>().textState--;
+                toggelingObject.GetComponent<InfoBoxContentManager>().textState--;
                 break;
             case 3:
-                toggleObject.GetComponent<InfoBoxContentChange>().textState--;
+                toggelingObject.GetComponent<InfoBoxContentManager>().textState--;
                 break;
             default:
                 Debug.Log("something happened");
