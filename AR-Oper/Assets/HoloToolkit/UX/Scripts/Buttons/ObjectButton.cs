@@ -2,8 +2,8 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using UnityEngine;
-using System;
 using System.Collections;
+using System;
 using HoloToolkit.Unity;
 
 namespace HoloToolkit.Unity.Buttons
@@ -112,6 +112,7 @@ namespace HoloToolkit.Unity.Buttons
             }
 
             base.OnStateChange(newState);
+
         }
     }
 }
