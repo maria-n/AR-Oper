@@ -6,7 +6,6 @@ using HoloToolkit.Unity.InputModule;
 
 public class ToggleObjectsScript : Singleton<ToggleObjectsScript>, IFocusable, IInputClickHandler
 {
-    private static bool created = false;
     private Color defaultColor;
     private Color changeDefaultColor;
     private int toggleState;
