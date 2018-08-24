@@ -15,8 +15,12 @@ public class InfoBoxContentManager : MonoBehaviour
     {
         textState = 0;
         maxCount = 3;
-        textContent = GetComponentInParent<InfoBoxObjectManager>().toggledText;
         Debug.Log("Awake: " + this.gameObject);
+    }
+
+    private void Start()
+    {
+        textContent = GetComponentInParent<InfoBoxObjectManager>().toggledText;
     }
 
     // Update is called once per frame

@@ -22,7 +22,6 @@ public class InfoBoxButtonScript : Singleton<InfoBoxButtonScript>, IInputClickHa
     {
         defaultColor = GetComponent<Renderer>().material.color;
         defaultIcon = transform.GetChild(0).GetComponent<Renderer>().material.color;
-        ToggledObject = GetComponentInParent<InfoBoxObjectManager>().toggledObject;
         gazeManager = GameObject.Find("DefaultCursor").GetComponent<GazeManager>();
 
         Debug.Log("Awake: " + gameObject);
@@ -30,6 +29,7 @@ public class InfoBoxButtonScript : Singleton<InfoBoxButtonScript>, IInputClickHa
 
     private void Start()
     {
+        ToggledObject = GetComponentInParent<InfoBoxObjectManager>().toggledObject;
         textCountMax = ToggledObject.GetComponent<InfoBoxContentManager>().maxCount;
     }
 

@@ -12,7 +12,7 @@ public class InfoBoxObjectManager : MonoBehaviour {
     private void Awake()
     {
         toggledObject = GameObject.Find(name + "/InfoBox");
-        toggledText = GameObject.Find(toggledObject.name).transform.GetChild(0).GetChild(0).gameObject;
+        toggledText = GameObject.Find(name + "/InfoBox").transform.GetChild(0).GetChild(0).gameObject;
         toggelingObject = GameObject.Find(name + "/InfoBoxObject");
         allToggleObjects = GameObject.FindGameObjectsWithTag("ToggleObject");
         allToggledObjects = GameObject.FindGameObjectsWithTag("ToggledObject");
