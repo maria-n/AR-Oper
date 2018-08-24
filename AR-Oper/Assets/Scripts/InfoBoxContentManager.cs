@@ -9,46 +9,52 @@ public class InfoBoxContentManager : MonoBehaviour
 {
     public int textState;
     public int maxCount;
-    private GameObject toggledText;
+    private GameObject textContent;
 
     private void Awake()
     {
         textState = 0;
         maxCount = 3;
-        toggledText = GameObject.Find("InfoBox").transform.GetChild(0).GetChild(0).gameObject;
+        textContent = GetComponentInParent<InfoBoxObjectManager>().toggledText;
         Debug.Log("Awake: " + this.gameObject);
     }
 
     // Update is called once per frame
-    void Update () {
-		switch(textState)
+    private void Update ()
+    {
+        ChangeInfoBoxText();
+    }
+
+    private void ChangeInfoBoxText()
+    {
+        switch (textState)
         {
             case 0:
-                toggledText.GetComponent<InfoBoxTextWrap>().NeedsLayout = true;
-                toggledText.GetComponent<InfoBoxTextWrap>().UnwrappedText = "case 0 + 1";
+                textContent.GetComponent<InfoBoxTextWrap>().NeedsLayout = true;
+                textContent.GetComponent<InfoBoxTextWrap>().UnwrappedText = "case 0 + 1";
 
                 break;
             case 1:
-                toggledText.GetComponent<InfoBoxTextWrap>().NeedsLayout = true;
-                toggledText.GetComponent<InfoBoxTextWrap>().UnwrappedText = "case 1 + 1";
+                textContent.GetComponent<InfoBoxTextWrap>().NeedsLayout = true;
+                textContent.GetComponent<InfoBoxTextWrap>().UnwrappedText = "case 1 + 1";
 
                 break;
             case 2:
-                toggledText.GetComponent<InfoBoxTextWrap>().NeedsLayout = true;
-                toggledText.GetComponent<InfoBoxTextWrap>().UnwrappedText = "case 2 + 1";
+                textContent.GetComponent<InfoBoxTextWrap>().NeedsLayout = true;
+                textContent.GetComponent<InfoBoxTextWrap>().UnwrappedText = "case 2 + 1";
 
                 break;
             case 3:
-                toggledText.GetComponent<InfoBoxTextWrap>().NeedsLayout = true;
-                toggledText.GetComponent<InfoBoxTextWrap>().UnwrappedText = "case 3 + 1";
+                textContent.GetComponent<InfoBoxTextWrap>().NeedsLayout = true;
+                textContent.GetComponent<InfoBoxTextWrap>().UnwrappedText = "case 3 + 1";
 
                 break;
             default:
-                toggledText.GetComponent<InfoBoxTextWrap>().NeedsLayout = true;
-                toggledText.GetComponent<InfoBoxTextWrap>().UnwrappedText = "Ups";
+                textContent.GetComponent<InfoBoxTextWrap>().NeedsLayout = true;
+                textContent.GetComponent<InfoBoxTextWrap>().UnwrappedText = "Ups";
                 break;
 
 
         }
-	}
+    }
 }

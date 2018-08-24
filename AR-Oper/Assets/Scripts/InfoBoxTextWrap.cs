@@ -15,7 +15,7 @@ public class InfoBoxTextWrap : MonoBehaviour
         Debug.Log("Awake: " + this.gameObject);
     }
 
-    void Start()
+    private void Start()
     {
         TheMesh = GetComponent<TextMesh>();
         if (ConvertNewLines)
@@ -60,7 +60,7 @@ public class InfoBoxTextWrap : MonoBehaviour
         return part;
     }
 
-    void Update()
+    private void Update()
     {
         if (!NeedsLayout)
             return;
